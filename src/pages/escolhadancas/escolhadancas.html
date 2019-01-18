@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar color="secondary">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>
+      Danças
+   <p *ngIf="activate" class="subtitle">{{usuario}}</p>
+    </ion-title>
+    <ion-buttons end>
+        <button *ngIf="activate" ion-button icon-only (click)="Deslogar()">
+            <ion-icon name="log-out" width="35px"  height="35px"></ion-icon>
+          </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+ 
+
+<ion-content>
+   <div *ngIf="dancas==null"> 
+  <img src="assets/imgs/semdanca.jpeg" class="imgsemdanca"> 
+ <p class="textsemdanca">As danças estarão disponíveis em breve...</p>
+   </div>
+ <ion-grid class="colmodal">
+    <ion-row class="colmodal">
+      <ion-col class="colmodal" *ngFor="let danca of dancas" col-12>
+      <div class="myCard colmodal">
+      <img (click)="detalhedanca(danca)" class="imgoptions" style="height: 130px; width: 100%;" alt="img" [src]="'data:image/jpeg;base64,' + danca.foto64"/>
+      <div class="myOverlay">
+         <div class="card-subtitle textocard">{{ danca.nome }} <ion-icon name="information-circle" style="margin-left:150px;"></ion-icon></div>
+      </div>
+     </div>
+     </ion-col>
+     </ion-row>
+     </ion-grid>
+</ion-content>

@@ -1,0 +1,19 @@
+<div style="background: #0b6641 !important">
+<ion-item style="background: #0b6641 !important; display: inline;">
+  <ion-avatar style="float: left; display: inline; margin-left: 5px; margin-right: 5px;">
+    <img style="display: inline; margin-top: 5px;" [src]="'data:image/jpeg;base64,' + inscricao.foto64">
+  </ion-avatar> 
+  <strong style="display: inline; color: #fff;"> {{ inscricao.nome }} </strong> 
+  <p style="color: #fff;">{{ inscricao.email }}</p>
+  <p style="margin-bottom: 5px; color: #fff;"><ion-icon name="pin"></ion-icon> {{ inscricao.endereco_rua }} - {{ inscricao.endereco_numero }} </p>
+</ion-item>
+</div>
+
+<p> <ion-icon name="calendar" style="margin-left: 5px; "></ion-icon> {{inscricao.nascimento}}</p>
+<p> <ion-icon name="call" style="margin-left: 5px;"></ion-icon> {{inscricao.telcelular}}</p>
+<p> <ion-icon name="school" style="margin-left: 5px; "></ion-icon> {{inscricao.ies}}</p>
+<p> <ion-icon name="card" style="margin-left: 5px; "></ion-icon> {{inscricao.rg_numero}} <ion-icon name="card" style="margin-left: 25px;"></ion-icon> {{inscricao.cpf}}</p>
+<p> <ion-icon name="body" style="margin-left: 5px;"></ion-icon> {{inscricao.peso}} <ion-icon name="stats" style="margin-left: 25px;"></ion-icon> {{inscricao.altura}} <ion-icon name="medkit" style="margin-left: 25px;"></ion-icon> {{inscricao.tiposanguineo}}</p>
+<p> <ion-icon name="person" style="margin-left: 5px; "></ion-icon> {{inscricao.nome_mae}}  <ion-icon name="person" style="margin-left: 25px;"></ion-icon> {{inscricao.nome_pai}}</p>
+<strong style="font-weight: bold; color: grey; margin-left: 5px;">Em caso de emergência avisar a:</strong>
+<p> <ion-icon name="person" style="margin-left: 5px;"></ion-icon> {{inscricao.nome_emergencia}} <ion-icon name="call" style="margin-left: 25px;"></ion-icon> {{inscricao.telefone_emergencia}}</p>

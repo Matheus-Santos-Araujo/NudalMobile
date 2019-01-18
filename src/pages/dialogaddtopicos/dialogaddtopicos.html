@@ -1,0 +1,20 @@
+<img *ngIf="base64image == null" alt="img" [src]="'data:image/jpeg;base64,' + topico.foto64"/>
+<img *ngIf="base64image != null" alt="img" [src]="base64image"/>
+
+<ion-fab (click)="getImage()" top right>
+      <button color="fab" class="fabstyle" ion-fab><ion-icon name="camera"></ion-icon></button>
+</ion-fab>
+
+<ion-item style="margin-top: 5px;">
+  <ion-label floating> Título do Tópico</ion-label>
+  <ion-input name="titulo" placeholder="Título do Tópico" [(ngModel)]="topico.titulo" type="text"></ion-input>
+</ion-item>
+
+<ion-item style="margin-top: 5px; margin-bottom: 15px">
+  <ion-label floating> Texto do Tópico</ion-label>
+  <ion-input name="titulo" placeholder="Texto do Tópico" [(ngModel)]="topico.texto" type="text"></ion-input>
+</ion-item>
+
+<button ion-button color="secondary"  style="margin: auto; display:block;" (click)="addtopico()" outline>ADICIONAR</button>
+<br>
+

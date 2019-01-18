@@ -1,0 +1,46 @@
+<!--
+  Generated template for the EscolhalutasPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="secondary">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>
+      Lutas
+      <p *ngIf="activate" class="subtitle">{{usuario}}</p>
+    </ion-title>
+    <ion-buttons end>
+        <button *ngIf="activate" ion-button icon-only (click)="Deslogar()">
+            <ion-icon name="log-out" width="35px"  height="35px"></ion-icon>
+          </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <div *ngIf="lutas==null"> 
+     <img src="assets/imgs/semluta.jpeg" class="imgsemluta"> 
+     <p class="textsemluta">As lutas estarão disponíveis em breve...</p>
+    </div>
+
+    <ion-grid class="colmodal">
+        <ion-row class="colmodal">
+          <ion-col class="colmodal" *ngFor="let luta of lutas" col-6>
+          <div class="myCard colmodal">
+          <img (click)="detalheluta(luta)" class="imgoptions" alt="img" [src]="'data:image/jpeg;base64,' + luta.foto64"/>
+          <div class="myOverlay">
+             <div class="card-subtitle textocard">{{ luta.nome }} <ion-icon name="information-circle" style="margin-left:25px;"></ion-icon></div>
+          </div>
+         </div>
+         </ion-col>
+         </ion-row>
+         </ion-grid>
+</ion-content>

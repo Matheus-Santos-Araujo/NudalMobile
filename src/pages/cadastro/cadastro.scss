@@ -1,0 +1,36 @@
+page-cadastro {
+     .fabstyle {
+        margin-top:120%;
+    }
+
+    .myCard{
+        position:relative;
+      }
+
+    .myOverlay{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 99;
+        bottom: 3px;
+        opacity: 0.7;
+        background: #008000;
+        color: #fff;
+        text-align: center;
+    }
+
+     .colmodal{
+    padding: 0px !important; 
+    margin: 0px !important;
+}
+
+.item {
+    .label{
+        margin: 0 !important;
+    }
+    .item-inner{
+        padding: 0 !important;
+        padding-left: 0 !important;
+    }
+}
+}

@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar color="secondary">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <img class="imglogo" src="assets/imgs/nudal.png"> 
+
+    <form>
+        <ion-item>
+            <ion-label style="color: #a0a0a0;" floating>Email</ion-label>
+            <ion-input [(ngModel)]="model.email" name="email" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label style="color: #a0a0a0;" floating>Senha</ion-label>
+            <ion-input [(ngModel)]="model.senha" name="senha" type="password"></ion-input>
+        </ion-item>
+        <br>
+        <button ion-button color="secondary" style="margin: auto; display:block;" type="submit" (click)="login()" (click)="logarstorage()" outline>LOGIN</button>
+        <p style="color:#ff0000; text-align: center;" (click)="alterarsenha()">Esqueceu a senha?</p>
+    </form>
+</ion-content>

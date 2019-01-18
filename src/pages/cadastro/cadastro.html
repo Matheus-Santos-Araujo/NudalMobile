@@ -1,0 +1,152 @@
+<ion-content scrollY="false">
+ <ion-item style="item" class="colmodal">
+<div class="colmodal" style="opacity: 0.3; filter: alpha(opacity=50);">
+<img style="height: 120px; width: 554px;" [src]="'data:image/jpeg;base64,' + fotomodal" scrollY="false">  
+</div>
+<img *ngIf="base64image == null" src="assets/imgs/nudal2.png" style="height: 100px; margin:auto; display: block; position:absolute; left:35%; top:8px; z-index: 2;"  scrollY="false"> 
+ 
+ <ion-avatar>
+    <img style="height: 100px; width: 100px; margin:auto; display: block; position:absolute; left:35%; top:8px; z-index: 2" *ngIf="base64image != null" [src]="base64image" scrollY="false"> 
+</ion-avatar>
+</ion-item>
+<ion-fab (click)="getImage()" top right>
+        <button color="fab" class="fabstyle" ion-fab><ion-icon name="camera"></ion-icon></button>
+      </ion-fab> 
+
+      <ion-scroll scrollY="true"  style="width:100%;height:80%; position: absolute;">   
+        <form [formGroup]="loadForm">
+        <ion-item>
+            <ion-label style="color: #a0a0a0; margin-top: 5px;" floating> <ion-icon style="color: #000;" name="person" item-left></ion-icon> Nome Completo</ion-label>
+            <ion-input name="nome" formControlName="nome" [(ngModel)]="model.nome" type="text"></ion-input>
+        </ion-item>
+ 
+        <ion-item style="margin-top: 5px;">
+            <ion-label style="color: #a0a0a0; margin-top: 5px;" floating><ion-icon style="color: #000;" name="calendar" item-left></ion-icon> Data de Nascimento</ion-label>
+            <ion-input name="nascimento" formControlName="nascimento" [(ngModel)]="model.nascimento" type="number"></ion-input>
+        </ion-item>
+
+        <ion-row>
+                <ion-col col-7> 
+        <ion-item style="margin-top: 5px;">
+            <ion-label style="color: #a0a0a0;" floating><ion-icon style="color: #000;" name="call" item-left></ion-icon> Telefone</ion-label>
+            <ion-input name="mensagem" formControlName="telcelular" [(ngModel)]="model.telcelular"  type="number"></ion-input>
+        </ion-item>
+    </ion-col>
+    <ion-col col-5>  
+        <ion-item style="margin-top: 20%;"> 
+                <ion-label style="color: #a0a0a0;" floating> Fixo</ion-label>
+                <ion-select name="mensagem" type="text"></ion-select>
+            </ion-item>
+         </ion-col>
+        </ion-row>
+   
+        <ion-item>
+            <ion-label style="color: #a0a0a0;" floating><ion-icon style="color: #000;" name="mail" item-left></ion-icon> Email</ion-label>
+            <ion-input name="email" formControlName="email" [(ngModel)]="model.email" type="text"></ion-input>
+        </ion-item> 
+
+        <ion-row>
+         <ion-col col-7>  
+        <ion-item>
+            <ion-label style="color: #a0a0a0;" floating><ion-icon style="color: #000;" name="locate" item-left></ion-icon> Endereço</ion-label>
+            <ion-input name="mensagem" formControlName="endereco_rua" [(ngModel)]="model.endereco_rua" type="text"></ion-input>
+        </ion-item>
+         </ion-col> 
+
+         <ion-col col-5>  
+        <ion-item style="margin-top: 16%;">
+            <ion-label style="color: #a0a0a0;" floating> Num</ion-label>
+            <ion-input name="mensagem" formControlName="endereco_numero" type="number"></ion-input> 
+        </ion-item>
+        </ion-col>  
+        </ion-row>
+
+            <ion-row>
+         <ion-col col-7>  
+        <ion-item>
+            <ion-label style="color: #a0a0a0;" floating><ion-icon style="color: #000;" name="add" item-left></ion-icon> Tipo Sanguíneo</ion-label>
+            <ion-input  [(ngModel)]="model.tiposanguineo" formControlName="tiposanguineo" name="mensagem" type="text"></ion-input>
+        </ion-item>
+         </ion-col> 
+
+         <ion-col col-5>  
+        <ion-item style="margin-top: 17%;">
+            <ion-label style="color: #a0a0a0;" floating>Instituição de Ensino</ion-label>
+            <ion-input  [(ngModel)]="model.ies" formControlName="ies" name="mensagem" type="text"></ion-input>
+        </ion-item>
+        </ion-col>  
+        </ion-row>
+
+               <ion-row>
+                <ion-col col-6>  
+               <ion-item>
+                   <ion-label style="color: #a0a0a0;" floating>Peso</ion-label>
+                   <ion-input  [(ngModel)]="model.peso" formControlName="peso" name="mensagem" type="number"></ion-input>
+               </ion-item>
+                </ion-col> 
+       
+                <ion-col col-6>  
+               <ion-item>
+                   <ion-label style="color: #a0a0a0;" floating>Altura</ion-label>
+                   <ion-input  [(ngModel)]="model.altura" formControlName="altura" name="mensagem" type="number"></ion-input>
+               </ion-item>
+               </ion-col>  
+               </ion-row>
+
+               <ion-item>
+                    <ion-label style="color: #a0a0a0;" floating><ion-icon style="color: #000;" name="card" item-left></ion-icon> CPF</ion-label>
+                    <ion-input  [(ngModel)]="model.cpf" name="email" formControlName="cpf" type="number"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                        <ion-label style="color: #a0a0a0;" floating>RG</ion-label>
+                        <ion-input name="email"  [(ngModel)]="model.rg_numero" formControlName="rg_numero" type="number"></ion-input>
+                </ion-item>
+
+                <ion-row>
+                        <ion-col col-6>  
+                       <ion-item>
+                           <ion-label style="color: #a0a0a0;" floating><ion-icon style="color: #000;" name="card" item-left></ion-icon> Data de Exp</ion-label>
+                           <ion-input name="mensagem"  [(ngModel)]="model.rg_expedicao" formControlName="rg_expedicao" type="number"></ion-input>
+                       </ion-item>
+                        </ion-col> 
+               
+                        <ion-col col-6>  
+                       <ion-item style="margin-top: 14%;">  
+                           <ion-label style="color: #a0a0a0;" floating>Orgão Exp</ion-label>
+                           <ion-input name="mensagem"  [(ngModel)]="model.rg_expedidor" formControlName="rg_expedidor" type="text"></ion-input>
+                       </ion-item>
+                       </ion-col>  
+                       </ion-row>
+
+                   <ion-item>
+                        <ion-label style="color: #a0a0a0;" floating> <ion-icon style="color: #000;" name="person" item-left></ion-icon> Nome do Pai</ion-label>
+                        <ion-input name="email"  [(ngModel)]="model.nome_pai" formControlName="nome_pai" type="text"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                            <ion-label style="color: #a0a0a0;" floating><ion-icon style="color: #000;" name="person" item-left></ion-icon> Nome da Mãe</ion-label>
+                            <ion-input name="email"  [(ngModel)]="model.nome_mae" formControlName="nome_mae" type="text"></ion-input>
+                        </ion-item>
+                <strong style="color: #a0a0a0">Em caso de emergência avisar a:</strong>
+                        <ion-row>
+                                <ion-col col-6>  
+                               <ion-item>
+                                   <ion-label style="color: #a0a0a0;" floating>Nome</ion-label>
+                                   <ion-input name="mensagem"  [(ngModel)]="model.nome_emergencia" formControlName="nome_emergencia" type="text"></ion-input>
+                               </ion-item>
+                                </ion-col> 
+                       
+                                <ion-col col-6>  
+                               <ion-item>
+                                   <ion-label style="color: #a0a0a0;" floating>Telefone</ion-label>
+                                   <ion-input name="mensagem"  [(ngModel)]="model.telefone_emergencia" formControlName="telefone_emergencia" type="number"></ion-input>
+                               </ion-item>
+                               </ion-col>  
+                               </ion-row>
+                            </form>
+        <br>
+        <button ion-button color="secondary" [disabled]="!loadForm.valid" style="margin: auto; display:block;" (click)="cadastro()" outline>ENVIAR INSCRIÇÃO</button>
+        <br>
+    </ion-scroll>
+</ion-content>

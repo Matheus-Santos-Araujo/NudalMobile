@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-navbar color="secondary">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>
+      NUDAL
+      <p *ngIf="activate" class="subtitle">{{usuario}}</p>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+<ion-grid class="colmodal">
+        <ion-row class="colmodal">
+          <ion-col class="colmodal" col-12>
+            <img class="imgoptions" alt="img" [src]="'data:image/jpeg;base64,' + model.foto64"/>
+            <div class="myOverlay">
+              <div class="card-subtitle textocard">{{ model.nome }} <ion-icon name="create" (click)="Inscricao()" style="margin-left:170px;"></ion-icon> <ion-icon name="time" (click)="dialogverhorario()" style="margin-left:20px;"></ion-icon></div>
+            </div>
+         </ion-col>
+
+           <ion-col col-12>
+              <ion-card style="margin-top: 0 !important; padding-top: 0 !important; margin-bottom: 0 !important; padding-bottom: 0 !important;">
+                  <ion-item detail-push>
+                  <h6 style="color: #0b6641; font-weight: bold; display: inline;"><ion-icon name="bookmarks"></ion-icon> Descrição</h6> <ion-icon *ngIf="activatefuctions" style="display: inline; color: #0b6641;" name="build" (click)="dialogeditarmodalidade()"></ion-icon><ion-icon (click) = "state =!state;" *ngIf="!state" style="display: inline; float: right; font-size: 30px;" name="arrow-dropdown"></ion-icon><ion-icon (click) = "state =!state;" *ngIf="state" style="display: inline; float: right;  font-size: 30px;" name="arrow-dropup"></ion-icon>
+                  <p style="margin-top: 5px;" *ngIf="state"> {{model.informacoes}} </p>
+                </ion-item>
+              </ion-card>
+           </ion-col>
+ 
+           <ion-col col-12>
+              <ion-card style="margin-top: 0 !important; padding-top: 0 !important; margin-bottom: 0 !important; padding-bottom: 0 !important;">
+                  <ion-item detail-push> 
+                  <h6 style="color: #0b6641; display: inline; font-weight: bold;"><ion-icon name="calendar"></ion-icon> Tópicos </h6> <ion-icon *ngIf="activatefuctions" style="display: inline; color: #0b6641;" name="add" (click)="dialogaddtopico(novotopico)"></ion-icon><ion-icon (click) = "state2 =!state2;" *ngIf="!state2" style="display: inline; float: right;  font-size: 30px;" name="arrow-dropdown"></ion-icon><ion-spinner *ngIf="loadtop"></ion-spinner><ion-icon (click) = "state2 =!state2;" *ngIf="state2" style="display: inline; float: right;  font-size: 30px;" name="arrow-dropup"></ion-icon>
+                  <div *ngFor="let topico of topicos">
+                    <div *ngIf="state2" style="padding-top: 12px;">
+                  <p style="display:inline;" (click)="dialogvertopico(topico)" *ngIf="state2"><ion-icon name="bookmark" style="color:#0b6641"></ion-icon> {{topico.titulo}} </p><ion-icon *ngIf="activatefuctions && state2" (click)="deletarTopico(topico)" style="color: #0b6641; float:right; display:inline;" name="trash" end></ion-icon>
+                  </div>
+                </div>
+                </ion-item>
+              </ion-card>
+             </ion-col>
+
+             <ion-col *ngIf="activatefuctions" col-12>
+                <ion-card style="margin-top: 0 !important; padding-top: 0 !important; margin-bottom: 0 !important; padding-bottom: 0 !important;">
+                <ion-item detail-push> 
+                    <h6 style="color: #0b6641; font-weight: bold; display: inline;"><ion-icon name="person"></ion-icon> Pedidos de inscrição </h6><ion-icon (click) = "state3 =!state3;" *ngIf="!state3" style="display: inline; float: right;  font-size: 30px;" name="arrow-dropdown"></ion-icon><ion-spinner *ngIf="loadinsc"></ion-spinner><ion-icon (click) = "state3 =!state3;" *ngIf="state3" style="display: inline; float: right;  font-size: 30px;" name="arrow-dropup"></ion-icon>
+                    <div *ngFor="let inscricao of inscricoes">
+
+                        <ion-avatar *ngIf="state3" style="float: left; display: inline; margin-left: 5px; margin-right: 5px;">
+                            <img style="margin-top: 5px;" [src]="'data:image/jpeg;base64,' + inscricao.foto64">
+                        </ion-avatar>  
+                          
+                      <p style="margin: 5px; font-weight: bold;" (click)="dialogverinscricao(inscricao)" *ngIf="state3">{{inscricao.nome}}</p>
+                        <p style=" display: inline;" *ngIf="state3">{{inscricao.email}}</p>
+
+                        <ion-icon *ngIf="state3" style="color: #0b6641; float:right; display: inline;" (click)="deletarInscricao(inscricao)" name="trash" end></ion-icon>
+                      </div>
+                      </ion-item>
+                    </ion-card>
+               </ion-col>
+         </ion-row>
+</ion-grid>
+</ion-content>
